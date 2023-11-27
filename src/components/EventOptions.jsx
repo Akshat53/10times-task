@@ -1,11 +1,14 @@
 import { Space } from "antd";
 import React from "react";
 import ActionTab from "./ActionTab";
+import styles from '../components/components.module.css'
+import { Divider } from 'antd';
 
 const EventOptions = (props) => {
   const { options = [], label } = props;
+
   return (
-    <Space direction="vertical">
+    <Space direction="vertical"  className={styles.customEl}>
       {options.map((item, i) => {
         return (
           <ActionTab

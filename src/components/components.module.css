@@ -1,5 +1,38 @@
 .customEl {
-  background-color: #d9d9d9;
+  background-color: #eeeeee;
   border-radius: 8px;
   padding: 10px;
+  width: 100%;
+}
+
+.themeTab {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.line {
+  height: 4px;
+  width: 100%;
+  margin-bottom: 4px;
+  background-color: #eeeeee;
+}
+
+.space {
+  width: 70%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.w100 div:last-child {
+  margin-left: auto;
+}
+
+.marginSAuto {
+  margin-left: auto;
+}
+
+.cap {
+  text-transform: capitalize;
 }

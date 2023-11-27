@@ -3,10 +3,9 @@ import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
 import { Col, Row } from "antd";
 import { Breadcrumb, Layout, Menu, theme, Input } from "antd";
-import Form from '../components/Form'
+import Form from "../components/Form";
 
 const { Header, Content, Footer } = Layout;
-
 
 const App = () => {
   const {
@@ -29,14 +28,9 @@ const App = () => {
           }}
         >
           <Row>
-            <Col span={12}>
-              <Form >
-                
-              </Form>
-                
-         
+            <Col span={24}>
+              <Form />
             </Col>
-            <Col span={12}>col-12</Col>
           </Row>
         </div>
       </Content>

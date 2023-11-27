@@ -1,18 +1,49 @@
 import { DatePicker, Space, TimePicker, Typography } from "antd";
 import React from "react";
+import { timeFormat, dateFormat } from "../constants";
+import dayjs from "dayjs";
 
-const AppDatePicker = () => {
+const AppDatePicker = (props) => {
+  const { setFieldValue, values, startname, endname } = props;
   return (
     <Space direction="vertical">
       <Space>
         <Typography>Start</Typography>
-        <DatePicker />
-        <TimePicker />
+        <DatePicker
+          value={values[startname]}
+          onChange={(val, dateString) => {
+            console.log(val, dateString);
+            setFieldValue(startname, val);
+          }}
+          format={dateFormat}
+        />
+        <TimePicker
+          value={values[startname]}
+          onChange={(val, dateString) => {
+            console.log(val, dateString);
+            setFieldValue(startname, val);
+          }}
+          format={timeFormat}
+        />
       </Space>
       <Space>
         <Typography>End</Typography>
-        <DatePicker />
-        <TimePicker />
+        <DatePicker
+          value={values[endname]}
+          onChange={(val, dateString) => {
+            console.log(val, dateString);
+            setFieldValue(endname, val);
+          }}
+          format={dateFormat}
+        />
+        <TimePicker
+          value={values[endname]}
+          onChange={(val, dateString) => {
+            console.log(val, dateString);
+            setFieldValue(endname, val);
+          }}
+          format={timeFormat}
+        />
       </Space>
     </Space>
   );
