@@ -36,3 +36,15 @@
 .cap {
   text-transform: capitalize;
 }
+.headEl{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 70px;
+}
+
+.eventCard{
+  display: flex;
+  justify-content: space-between ;
+
+
+}

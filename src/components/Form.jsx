@@ -32,6 +32,7 @@ import {
   visiblityOtptions,
   colorOptions,
   typefaceOptions,
+  avatarOptions,
 } from "../constants";
 import dayjs from "dayjs";
 
@@ -75,7 +76,7 @@ const FormApp = (props) => {
               <Col span={12}>
                 <Space direction="vertical">
                   <Avatar
-                    src={url}
+                    options={avatarOptions}
                     name="userId"
                     value={values.userId}
                     onChange={(e) => setFieldValue("userId", e.target.value)}
