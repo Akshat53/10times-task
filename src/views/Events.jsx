@@ -1,7 +1,7 @@
 import React from "react";
 import { Space, Row, Col } from "antd";
 import Header from "../components/Head";
-import Timeline from '../components/Timeline'
+import Timeline from "../components/Timeline";
 
 const Events = () => {
   return (
@@ -11,19 +11,20 @@ const Events = () => {
       style={{
         display: "flex",
         background: "rgb(255,255,255)",
-        backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
-        height : "100vh",
+        backgroundImage: " linear-gradient(to bottom, #e5eef2 26%, #f4f5f6 87%)",
+        height: "100vh",
+        
       }}
     >
       <Row>
         <Col span={24}>
-          <Header label={'Events'} />
+          <Header label={"Events"} />
         </Col>
       </Row>
       <Row>
-        <Col>
-        <Timeline/>
-       </Col>
+        <Col span={12} >
+          <Timeline />
+        </Col>
       </Row>
     </Space>
   );

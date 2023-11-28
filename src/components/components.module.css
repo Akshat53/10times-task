@@ -36,15 +36,26 @@
 .cap {
   text-transform: capitalize;
 }
-.headEl{
+.headEl {
   display: flex;
   justify-content: space-between;
   padding: 10px 70px;
 }
+.headEl h2{
+  color: darksalmon;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
 
-.eventCard{
+.eventCard {
   display: flex;
-  justify-content: space-between ;
-
-
+  justify-content: space-between;
+  color: black;
+  font-family: "sans-serif";
+  font-size: "20px";
+}
+.font {
+  font-size: 15px;
+  color: gray;
+  
 }
