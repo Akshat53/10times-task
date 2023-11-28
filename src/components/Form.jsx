@@ -41,6 +41,18 @@ const url =
 
 const FormApp = (props) => {
   const formikRef = useRef();
+
+  const storeFormDataToLocal = (values) => {
+    localStorage.setItem("eventFormData", JSON.stringify(values));
+  };
+
+  useEffect(() => {
+    const storedFormData = localStorage.getItem("eventFormData");
+    if (storedFormData) {
+      formikRef.current.setValues(JSON.parse(storedFormData));
+    }
+  }, []);
+
   return (
     <>
       <Formik
@@ -60,7 +72,8 @@ const FormApp = (props) => {
         }}
         innerRef={formikRef}
         onSubmit={async (values) => {
-          console.log(values);
+          console.log(values); // Log the form values to console
+          storeFormDataToLocal(values); // Save form data to local storage
         }}
       >
         {({
