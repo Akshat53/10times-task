@@ -17,6 +17,7 @@ import EventOptions from "./EventOptions";
 import Switch from "../components/Switch";
 import Dropdown from "../components/Dropdwon";
 import Themes from "../components/Themes";
+import styles from '../components/components.module.css'
 
 import {
   EditOutlined,
@@ -59,6 +60,13 @@ const FormApp = (props) => {
     localStorage.setItem("formData", JSON.stringify(existingData));
     console.log("Existing Data After:", existingData);
   };
+  const handleEventCreation = () => {
+    const formData = formikRef.current.values;
+  
+    saveToLocalStorage(formData); 
+    console.log('Event created:', formData); 
+    alert('Event created successfully!');
+  };
 
   return (
     <>
@@ -77,13 +85,13 @@ const FormApp = (props) => {
             theme: "",
             color: "Gray",
             typeFace: "Default",
-            avatarData: null, // Initialize avatarData as null
+            avatarData: null,
           }}
           innerRef={formikRef}
           onSubmit={async (values) => {
             saveToLocalStorage(values);
             console.log(values);
-            // wait for the data to save (e.g., use a setTimeout)
+         
             setTimeout(() => {
               formikRef.current.resetForm();
             }, 1000);
@@ -109,10 +117,13 @@ const FormApp = (props) => {
                       }}
                     />
                     <AppInput
+                       className={styles.customPlaceholder}
+                       style={{padding:"20px 20px",border:"none",fontSize:"28px",color:"gray"}}
                       name="eventTitle"
                       placeholder="Enter Event Title"
                       value={values.eventTitle}
                       onChange={handleChange}
+                      
                     />
                     <IconBox
                       icon={
@@ -148,6 +159,7 @@ const FormApp = (props) => {
                       }
                     />
                     <EventOptions
+                   
                       options={[
                         {
                           label: "Tickets",
@@ -166,7 +178,10 @@ const FormApp = (props) => {
                                 options={ticketOptions}
                                 onChange={({ key }) => {
                                   setFieldValue("ticketRate", key);
+                                  
+                                
                                 }}
+                            
                               />
                             </>
                           ),
@@ -263,7 +278,7 @@ const FormApp = (props) => {
                         },
                       ]}
                     />
-                    <Button type="submit" label="Create Event" />
+                   <Button label="Create Event" onClick={handleEventCreation} type="button" />
                   </Space>
                 </Col>
               </Row>

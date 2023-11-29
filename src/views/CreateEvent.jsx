@@ -4,6 +4,7 @@ import { Avatar, Space } from "antd";
 import { Col, Row } from "antd";
 import { Breadcrumb, Layout, Menu, theme, Input } from "antd";
 import Form from "../components/Form";
+import Nav from '../components/Nav'
 
 const { Header, Content, Footer } = Layout;
 
@@ -19,6 +20,7 @@ const App = () => {
           padding: "50px 50px",
         }}
       >
+        <Nav />
         <div
           style={{
             padding: 24,

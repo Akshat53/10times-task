@@ -20,7 +20,7 @@ const EventCard = (props) => {
           }}
         >
           <Row className={Styles.eventCard}>
-            <Col>
+            <Col style={{width:"70%"}}>
               <h3>{title}</h3>
               <p className={Styles.font}>
                 <ClockCircleFilled /> {time}

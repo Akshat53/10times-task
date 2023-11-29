@@ -9,7 +9,7 @@ const Cards = (props) => {
       style={{
         width: 300,
         height: 400,
-        background: "#ffd89b" /* fallback for old browsers */,
+        background: "#ffd89b" ,
         background: "-webkit-linear-gradient(to right, #ffd89b, #19547b)",
         background: "linear-gradient(to right, #ffd89b, #19547b)",
         color: "white",
