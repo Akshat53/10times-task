@@ -1,4 +1,4 @@
-# Event Management App
+# 10-Time React Challenge
 
 The Event Management App is a React-based web application designed to help users create and manage events seamlessly. It offers a user-friendly interface for event creation with various customizable options.
 
