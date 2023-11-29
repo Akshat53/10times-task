@@ -21,7 +21,14 @@ The Event Management App is a React-based web application designed to help users
 
 1. **Installation**: Clone the repository and run `npm install` to install dependencies.
 2. **Running the App**: Execute `npm start` to start the development server.
-3. **Usage**: Access the app via the provided URL and start creating and managing events.
+3. **Usage**: Access the app via the provided URL and start creating and managing events 
+      there are two routes 
+      1. `/`  http://localhost:3000
+      2. `/Events`  http://localhost:3000/Events
+     
+
+.
+
 
 ## Usage Example
 
