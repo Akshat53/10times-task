@@ -26,9 +26,10 @@ The Event Management App is a React-based web application designed to help users
       1. `/`  http://localhost:3000
       2. `/Events`  http://localhost:3000/Events
      
+## Preview 
 
 .
-
+![Alt text](<Screenshot 2023-11-29 212719.png>) ![Alt text](<Screenshot 2023-11-29 212733-1.png>)
 
 ## Usage Example
 

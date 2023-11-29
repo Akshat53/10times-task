@@ -41,7 +41,7 @@
   justify-content: space-between;
   padding: 10px 70px;
 }
-.headEl h2{
+.headEl h2 {
   color: darksalmon;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
@@ -57,31 +57,29 @@
 .font {
   font-size: 15px;
   color: gray;
-  
 }
 
-/* components.module.css */
-
 .iconBox {
-  /* Set up your desired styles for the container here */
-  /* For example: */
   display: flex;
   flex-direction: column;
 }
 
-/* Apply flex properties to Space component */
 .space {
-  width: 100%; /* Ensures Space takes full width of its container */
+  width: 100%;
 }
 
 .icon {
-  /* Set styles for the icon div */
-  /* For example: */
-  flex: 1; /* Takes full width when space is limited */
+  flex: 1;
 }
 
 .customEl {
-  /* Set styles for the customEl div */
-  /* For example: */
-  margin-top: 10px; /* Adds space between icon and customEl */
+  margin-top: 10px;
+}
+
+.b{
+  width: 100%;
+  background: black;
+  color: white;
+  height: 38px;
+  border-radius: 20px;
 }
