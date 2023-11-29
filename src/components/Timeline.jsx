@@ -1,51 +1,48 @@
-import React, { useState } from "react";
-import { Flex, Radio, Timeline } from "antd";
+// TimelineComponent
+import React, { useState, useEffect } from "react";
+import { Timeline } from "antd";
 import EventCard from "./EventCard";
-const App = () => {
-  const [mode, setMode] = useState("alternate");
+import moment from "moment";
+
+const AppTimeline = ({ selectedOption }) => {
+  const [formData, setFormData] = useState([]);
+
+  useEffect(() => {
+    // Fetch the data from localStorage on component mount
+    const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+    setFormData(storedData);
+  }, []);
+
+  const filteredEvents = formData.filter((event) => {
+    const eventDate = moment(event.startDate);
+    const now = moment();
+
+    if (selectedOption === "Upcoming") {
+      return eventDate.isAfter(now);
+    } else if (selectedOption === "Past") {
+      return eventDate.isBefore(now);
+    }
+    return true;
+  });
 
   return (
-    <>
-      <Timeline
-        mode={mode}
-        items={[
-          {
-            label: (
-              <>
-                <div
-                  style={{ display: "flex", justifyContent: "space-evenly",fontFamily:"lucida console" ,fontSize:"18px",fontWeight:"400" }}
-                >
-                  <p style={{ color: "black" }}>
-                    <b>16 DEC</b>
-
-                    <span style={{ display: "block", color:"gray"}}> Wednesday</span>
-                  </p>
-                </div>
-              </>
-            ),
-            children: (
-              <>
-                <div style={{ display: "flex", padding: "0px 100px",fontFamily:"sans-serif"}}>
-                  <EventCard
-                    title={
-                      "Builder's Roundtable: How Ai is Trasforming eCommerce"
-                    }
-                    time={"12:50PM"}
-                    postedBy={"octa"}
-                    mode={"virtual"}
-                    src={
-                      "https://printfieldonline.com/wp-content/uploads/2019/11/posters-1.jpg"
-                    }
-                    badge={'invited'}
-                  ></EventCard>
-                </div>
-              </>
-            ),
-          },
-          {},
-        ]}
-      />
-    </>
+    <Timeline mode="left">
+      {filteredEvents.map((dataItem, index) => (
+        <Timeline.Item key={index} label={<><div><p style={{color:"gray",fontFamily:"cursive",fontSize:"17px",display:"flex",justifyContent:"space-evenly"}}>{moment(dataItem.startDate).format("MMMM Do,")}<br></br>
+        {moment(dataItem.startDate).format("dddd")}
+        </p></div></>}>
+          <EventCard
+            title={dataItem.eventTitle}
+            time={moment(dataItem.startDate).format("h:mm A")}
+            postedBy={dataItem.userId}
+            mode={dataItem.visibility}
+            src={''}
+            badge={"invited"}
+          />
+        </Timeline.Item>
+      ))}
+    </Timeline>
   );
 };
-export default App;
+
+export default AppTimeline;

@@ -36,23 +36,20 @@ import {
 } from "../constants";
 import dayjs from "dayjs";
 
+
 const url =
   "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
+
+  
 
 const FormApp = (props) => {
   const formikRef = useRef();
 
-  const storeFormDataToLocal = (values) => {
-    localStorage.setItem("eventFormData", JSON.stringify(values));
+  const saveToLocalStorage = (values) => {
+    const existingData = JSON.parse(localStorage.getItem("formData")) || [];
+    existingData.push(values);
+    localStorage.setItem("formData", JSON.stringify(existingData));
   };
-
-  useEffect(() => {
-    const storedFormData = localStorage.getItem("eventFormData");
-    if (storedFormData) {
-      formikRef.current.setValues(JSON.parse(storedFormData));
-    }
-  }, []);
-
   return (
     <>
       <Formik
@@ -72,8 +69,9 @@ const FormApp = (props) => {
         }}
         innerRef={formikRef}
         onSubmit={async (values) => {
-          console.log(values); // Log the form values to console
-          storeFormDataToLocal(values); // Save form data to local storage
+          saveToLocalStorage(values);
+          console.log(values);
+          formikRef.current.resetForm(); // Resetting the form after submission
         }}
       >
         {({

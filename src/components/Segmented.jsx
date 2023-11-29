@@ -1,12 +1,14 @@
+// Segment component
 import React from "react";
 import { Segmented } from "antd";
 
-const Segment = (props) => {
-  const { options = [] } = props;
+const Segment = ({ options = [], selectedOption, onSelect }) => {
   return (
-    <>
-    <Segmented options={options} />
-    </>
+    <Segmented
+      options={options}
+      selected={selectedOption}
+      onSelect={(option) => onSelect(option)} // Pass the selected option back to the parent
+    />
   );
 };
 
