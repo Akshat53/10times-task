@@ -59,3 +59,29 @@
   color: gray;
   
 }
+
+/* components.module.css */
+
+.iconBox {
+  /* Set up your desired styles for the container here */
+  /* For example: */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Apply flex properties to Space component */
+.space {
+  width: 100%; /* Ensures Space takes full width of its container */
+}
+
+.icon {
+  /* Set styles for the icon div */
+  /* For example: */
+  flex: 1; /* Takes full width when space is limited */
+}
+
+.customEl {
+  /* Set styles for the customEl div */
+  /* For example: */
+  margin-top: 10px; /* Adds space between icon and customEl */
+}

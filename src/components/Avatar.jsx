@@ -1,24 +1,38 @@
-import React from 'react';
-import { Dropdown, Button } from 'antd';
-import { Avatar, Space } from 'antd';
+import React, { useState } from 'react';
+import { Dropdown, Avatar, Menu } from 'antd';
+import { avatarOptions } from '../constants';
 
-const App = (props) => {
- const { label = "Select",
-  options = [],
-  onChange,
-} = props;
-    <Dropdown
-    menu={{
-      items: options,
-      onClick: onChange,
-    }}
-      placement="bottomRight"
-      arrow
-    >
-    <Avatar src={props.src} />
-   
-    
+const CustomAvatar = ({ onChange }) => {
+  const [selectedAvatar, setSelectedAvatar] = useState(avatarOptions[0]);
+
+  const handleMenuClick = (option) => {
+    setSelectedAvatar(option);
+    // Call the onChange function with the selected avatar data
+    onChange(option);
+  };
+
+  const menu = (
+    <Menu onClick={({ key }) => handleMenuClick(avatarOptions.find(option => option.key === key))}>
+      {avatarOptions.map(option => (
+        <Menu.Item key={option.key}>
+          <Avatar src={option.url} />
+          <span style={{ padding: '0 20px' }}>{option.label}</span>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
+  return (
+    <Dropdown overlay={menu} placement="bottomRight" arrow>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Avatar src={selectedAvatar.url} />
+        <div style={{ marginLeft: '8px', display: 'flex', flexDirection: 'column' }}>
+          <span style={{}}>{selectedAvatar.title}</span>
+          <span style={{ color: 'black', fontWeight: 'bold' }}>{selectedAvatar.label}</span>
+        </div>
+      </div>
     </Dropdown>
+  );
 };
-  
-export default App;
+
+export default CustomAvatar;

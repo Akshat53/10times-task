@@ -67,31 +67,29 @@ export const colorOptions = [
   },
 ];
 
-export const avatarOptions =[
+export const avatarOptions = [
   {
     key: '1',
+    title: 'Create Under',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
+    'Personal Calendar'
     ),
+    url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
   {
     key: '2',
+    title: 'Create Under',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item
-      </a>
+      'Rohit Calendar'
     ),
+    url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
   {
     key: '3',
+    title: 'Create Under',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item
-      </a>
+      'Himanshu Calendar'
     ),
-    url: "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-  
+    url: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
-]
+];

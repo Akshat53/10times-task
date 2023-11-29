@@ -1,5 +1,6 @@
 import React from "react";
-import { Card } from "antd";
+import { Card,  } from "antd";
+import Uploade from './Upload'
 
 const Cards = (props) => {
   const { label } = props;
@@ -18,6 +19,7 @@ const Cards = (props) => {
       }}
     >
       <h1>{label}</h1>
+      <Uploade/>
     </Card>
   );
 };

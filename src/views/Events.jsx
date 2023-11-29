@@ -12,7 +12,7 @@ const Events = () => {
         display: "flex",
         background: "rgb(255,255,255)",
         backgroundImage: " linear-gradient(to bottom, #e5eef2 26%, #f4f5f6 87%)",
-        height: "100vh",
+       
         
       }}
     >

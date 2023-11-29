@@ -7,11 +7,11 @@ const options = [
     value: "Apple",
   },
   {
-    label: "Pear",
+    label: <Skeleton label="Holiday" color="blue" />,
     value: "Pear",
   },
   {
-    label: "Orange",
+    label: <Skeleton label="Abstract" color="green" />,
     value: "Orange",
   },
 ];
@@ -28,6 +28,7 @@ const Themes = () => {
       onChange={onChange3}
       value={value3}
       optionType="button"
+      style={{display:"flex",justifyContent:"space-between"}}
     />
   );
 };
