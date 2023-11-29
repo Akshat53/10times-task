@@ -1,7 +1,7 @@
-import React from "react";
-import { Card, Space, Row, Col, Badge } from "antd";
+import React, { useEffect, useState } from "react";
+import { Badge, Card, Col, Row, Space } from "antd";
 import Styles from "../components/components.module.css";
-import Badage from "./Badage";
+import AppCounterBadage from "../components/Badage";
 import {
   VideoCameraOutlined,
   GitlabFilled,
@@ -9,7 +9,17 @@ import {
 } from "@ant-design/icons";
 
 const EventCard = (props) => {
-  const { title, time, postedBy, mode, name, src, badge } = props;
+  const { title, time, postedBy, mode, badge, src } = props;
+  const [storedData, setStoredData] = useState(null);
+
+  useEffect(() => {
+    const dataFromLocalStorage = localStorage.getItem('eventFormData');
+    if (dataFromLocalStorage) {
+      const parsedData = JSON.parse(dataFromLocalStorage);
+      setStoredData(parsedData);
+    }
+  }, []);
+
   return (
     <Space direction="vertical" size={16}>
       <Badge.Ribbon text={badge}>
@@ -31,18 +41,25 @@ const EventCard = (props) => {
               <p className={Styles.font}>
                 <VideoCameraOutlined /> {mode}
               </p>
-              <Badage/>
-
+              {storedData && (
+                <p className={Styles.font}>
+                  Retrieved data from local storage: {storedData.userId}
+                  {/* Display other retrieved data */}
+                </p>
+              )}
+              <AppCounterBadage />
             </Col>
-            <Col style={{ padding: "30px 20px" }}>
-              <img
-                src={src}
-                width="100%"
-                height="100px"
-                alt={name}
-                style={{ borderRadius: "200px" }}
-              />
-            </Col>
+            {src && ( // Check if src exists before rendering the image column
+              <Col style={{ padding: "30px 20px" }}>
+                <img
+                //   src={src}
+                  width="100%"
+                  height="100px"
+                  alt={title} // Changed alt to title for accessibility
+                  style={{ borderRadius: "200px" }}
+                />
+              </Col>
+            )}
           </Row>
         </Card>
       </Badge.Ribbon>
