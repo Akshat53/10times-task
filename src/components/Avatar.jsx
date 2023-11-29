@@ -7,7 +7,7 @@ const CustomAvatar = ({ onChange }) => {
 
   const handleMenuClick = (option) => {
     setSelectedAvatar(option);
-    // Call the onChange function with the selected avatar data
+  
     onChange(option);
   };
 
