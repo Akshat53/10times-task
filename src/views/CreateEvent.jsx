@@ -1,12 +1,11 @@
 import React from "react";
-import { UserOutlined } from "@ant-design/icons";
-import { Avatar, Space } from "antd";
+
 import { Col, Row } from "antd";
-import { Breadcrumb, Layout, Menu, theme, Input } from "antd";
+import {  Layout, theme } from "antd";
 import Form from "../components/Form";
 import Nav from '../components/Nav'
 
-const { Header, Content, Footer } = Layout;
+const {  Content, Footer } = Layout;
 
 const App = () => {
   const {

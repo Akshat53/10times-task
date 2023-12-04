@@ -4,6 +4,10 @@ import Uploade from './Upload'
 
 const Cards = (props) => {
   const { label } = props;
+  const handleImageUpload = (imageData) => {
+    // Store the image data in local storage
+    localStorage.setItem('uploadedImage', imageData);
+  };
   return (
     <Card
       style={{
@@ -19,7 +23,7 @@ const Cards = (props) => {
       }}
     >
       <h1>{label}</h1>
-      <Uploade/>
+      <Uploade handleImageUpload={handleImageUpload} />
     </Card>
   );
 };

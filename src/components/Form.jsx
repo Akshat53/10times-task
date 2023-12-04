@@ -17,7 +17,7 @@ import EventOptions from "./EventOptions";
 import Switch from "../components/Switch";
 import Dropdown from "../components/Dropdwon";
 import Themes from "../components/Themes";
-import styles from '../components/components.module.css'
+import styles from "../components/components.module.css";
 
 import {
   EditOutlined,
@@ -48,24 +48,17 @@ const FormApp = (props) => {
       (data) => data.userId === values.userId
     );
 
-    if (existingIndex !== -1) {
-      existingData[existingIndex] = {
-        ...existingData[existingIndex],
-        ...values,
-      };
-    } else {
-      existingData.push(values);
-    }
+    existingData.push(values);
 
     localStorage.setItem("formData", JSON.stringify(existingData));
     console.log("Existing Data After:", existingData);
   };
   const handleEventCreation = () => {
     const formData = formikRef.current.values;
-  
-    saveToLocalStorage(formData); 
-    console.log('Event created:', formData); 
-    alert('Event created successfully!');
+
+    saveToLocalStorage(formData);
+    console.log("Event created:", formData);
+    alert("Event created successfully!");
   };
 
   return (
@@ -91,7 +84,7 @@ const FormApp = (props) => {
           onSubmit={async (values) => {
             saveToLocalStorage(values);
             console.log(values);
-         
+
             setTimeout(() => {
               formikRef.current.resetForm();
             }, 1000);
@@ -117,13 +110,17 @@ const FormApp = (props) => {
                       }}
                     />
                     <AppInput
-                       className={styles.customPlaceholder}
-                       style={{padding:"20px 20px",border:"none",fontSize:"28px",color:"gray"}}
+                      className={styles.customPlaceholder}
+                      style={{
+                        padding: "20px 20px",
+                        border: "none",
+                        fontSize: "28px",
+                        color: "gray",
+                      }}
                       name="eventTitle"
                       placeholder="Enter Event Title"
                       value={values.eventTitle}
                       onChange={handleChange}
-                      
                     />
                     <IconBox
                       icon={
@@ -159,14 +156,13 @@ const FormApp = (props) => {
                       }
                     />
                     <EventOptions
-                   
                       options={[
                         {
                           label: "Tickets",
                           icon: <VideoCameraOutlined />,
                           el: (
                             <>
-                              <Dropdown 
+                              <Dropdown
                                 label={
                                   values.ticketRate
                                     ? values.ticketRate === "free"
@@ -178,10 +174,7 @@ const FormApp = (props) => {
                                 options={ticketOptions}
                                 onChange={({ key }) => {
                                   setFieldValue("ticketRate", key);
-                                  
-                                
                                 }}
-                            
                               />
                             </>
                           ),
@@ -278,7 +271,11 @@ const FormApp = (props) => {
                         },
                       ]}
                     />
-                   <Button label="Create Event" onClick={handleEventCreation} type="button" />
+                    <Button
+                      label="Create Event"
+                      onClick={handleEventCreation}
+                      type="button"
+                    />
                   </Space>
                 </Col>
               </Row>
